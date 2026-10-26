@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#292622">
+    <title>EL PAISA | COCINA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema">
+      <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+      <span data-theme-label>Modo oscuro</span>
+    </button>
+
+    <main class="login-screen" id="login-screen">
+      <section class="login-intro" aria-labelledby="brand-title">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="eyebrow">Sistema interno · Personal</p>
+        <h1 id="brand-title">COCINA<br><span>EL PAISA</span></h1>
+        <p class="login-intro__copy">Salón, cocina y gestión en un mismo lugar.</p>
+        <div class="service-status"><span class="status-dot"></span> Servicio activo</div>
+      </section>
+
+      <section class="login-panel" aria-labelledby="login-title">
+        <p class="eyebrow">Acceso de equipo</p>
+        <h2 id="login-title">Ingresar al turno</h2>
+        <p class="muted">Introduce tu PIN para abrir tu espacio de trabajo.</p>
+        <form id="login-form" class="login-form">
+          <label for="pin-input">PIN de empleado</label>
+          <input id="pin-input" name="pin" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" placeholder="••••" required>
+          <p class="form-error" id="login-error" role="alert" aria-live="polite"></p>
+          <button class="button button--primary button--wide" type="submit">Entrar al sistema <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-note">Uso exclusivo para empleados de la Cocina El paisa.</p>
+      </section>
+    </main>
+
+    <main class="app-screen" id="app-screen" hidden>
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="Cocina El paisa, inicio"><span class="wordmark__spark" aria-hidden="true">✳</span> EL PAISA</a>
+        <div class="topbar__right">
+          <span class="connection"><span class="status-dot"></span> En línea</span>
+          <span class="user-role" id="user-role"></span>
+          <button class="button button--quiet button--small" type="button" data-action="logout">Salir</button>
+        </div>
+      </header>
+      <div class="workspace" id="workspace" aria-live="polite"></div>
+    </main>
+    <div class="toast-region" id="toast-region" aria-live="assertive" aria-atomic="true"></div>
+  </body>
+</html>
